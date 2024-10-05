@@ -1,0 +1,26 @@
+@model IEnumerable<DeviceManagerApp.Models.Device> // Ensure the model is correctly specified
+
+@{
+    ViewData["Title"] = "Devices";
+}
+
+<h1>Devices List</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Device Name</th>
+            <th>Category</th>
+            <th>Acquisition Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var device in Model)
+        {
+            <tr>
+                <td>@device.DeviceName</td>
+                <td>@device.DeviceCategory?.CategoryName</td>
+                <td>@device.AcquisitionDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
